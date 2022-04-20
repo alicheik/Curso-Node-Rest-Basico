@@ -67,14 +67,16 @@ const usuariosPatch=(req=request,res=response)=>{
     });
 }
 const usuariosDelete= async(req=request,res=response)=>{
+    //console.log(req.params);
+    
     const {id} = req.params;
     
     //Borrado Fisico
     //const usuario = await User.findByIdAndDelete(id);
-
     const user = await User.findByIdAndUpdate(id,{state:false});
-
-    res.json(user);
+    //console.log(user);
+    
+    res.json({user});
 }
 
 
